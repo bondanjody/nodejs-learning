@@ -20,7 +20,11 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "vendor/**/*.{js,jsx}"
+    ]
   },
   "author": "BondanJS",
   "license": "ISC",
