@@ -11,7 +11,8 @@
     "verbose": true,
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "collectCoverage": true
   },
   "author": "BondanJS",
   "license": "ISC",
