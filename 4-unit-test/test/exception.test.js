@@ -6,9 +6,9 @@ test("exception matchers test", () => {
   expect(() => callMe("Bondan")).toThrow("Ups.. an error has occured !"); // Apakah kode akan menghasilkan pesan tersebut
 });
 
-// test("exception not happens", () => {
-//   expect(callMe("John")).toBe("OK");
-// });
+test("exception not happens", () => {
+  expect(callMe("John")).toBe("OK");
+});
 
 // NOTE :
 // Jika dijalankan maka akan 'passed' atau success yang menandakan bahwa kode tersebut menimbulkan Exception
