@@ -10,3 +10,11 @@ export function sumAll(bil) {
   }
   return total;
 }
+
+export function calculate(numbers, callback) {
+  let total = 0;
+  for (let number of numbers) {
+    total += number;
+  }
+  callback(total);
+}
