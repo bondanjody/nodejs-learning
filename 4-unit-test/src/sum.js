@@ -18,3 +18,11 @@ export function calculate(numbers, callback) {
   }
   callback(total);
 }
+
+export function calculateAndReturn(numbers, callback) {
+  let total = 0;
+  for (let number of numbers) {
+    total += number;
+  }
+  return callback(total);
+}
