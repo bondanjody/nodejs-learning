@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   res.send(`Hello ${req.query.name} !`);
 });
 
-test("test request", async () => {
+test("test request http", async () => {
   const response = await request(app).get("/").query({ name: "World" });
   expect(response.text).toBe("Hello World !");
 });

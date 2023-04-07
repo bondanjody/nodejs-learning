@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send(`Hello ${type} !`);
 });
 
-test("test request", async () => {
+test("test request header", async () => {
   const response = await request(app).get("/").set("Accept", "text/plain");
   expect(response.text).toBe("Hello text/plain !");
 });

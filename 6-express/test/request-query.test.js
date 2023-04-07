@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   res.send(`Hello ${req.query.firstname} ${req.query.lastname} !`);
 });
 
-test("test request", async () => {
+test("test request query", async () => {
   const response = await request(app)
     .get("/")
     .query({ firstname: "Bondan", lastname: "Jody" });

@@ -13,7 +13,7 @@ app.get("/hello/world", (req, res) => {
   });
 });
 
-test("test request", async () => {
+test("test request url", async () => {
   const response = await request(app)
     .get("/hello/world")
     .query({ name: "World" });
