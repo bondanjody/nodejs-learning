@@ -8,3 +8,5 @@
 5-logging/daily-*
 5-logging/test/*.log
 5-logging/src/*.log
+
+6-express/node_modules
