@@ -6,3 +6,4 @@
 5-logging/*.log
 5-logging/.d29b5342bac6cd4b74f6ce5fa80d9717feaf891a-audit.json
 5-logging/daily-*
+5-logging/test/*.log
