@@ -13,11 +13,23 @@ function addPoweredHeader(req, res, next) {
 
 const app = express();
 
+app.use(logger);
+app.use(addPoweredHeader);
+
 app.get("/", (req, res) => {
   res.send(`Hello Response !`);
 });
 
-test("test response", async () => {
+app.get("/about", (req, res) => {
+  res.send(`About Page`);
+});
+
+test("test response middleware 1", async () => {
   const response = await request(app).get("/");
-  expect(response.text).toBe("Hello Response !");
+  expect(response.get("X-Powered-By")).toBe("Google Inc");
+});
+
+test("test response middleware 2", async () => {
+  const response = await request(app).get("/about");
+  expect(response.get("X-Powered-By")).toBe("Google Inc");
 });
