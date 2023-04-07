@@ -3,3 +3,4 @@
 4-unit-test/vendor
 
 5-logging/node_modules
+5-logging/*.log
