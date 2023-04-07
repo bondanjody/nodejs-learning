@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.send("Hello response !");
 });
 
-test("test response", async () => {
+test("test response header", async () => {
   const response = await request(app).get("/");
   expect(response.get("X-Powered-By")).toBe("Bondan Expo");
   expect(response.get("X-Author")).toBe("Bondan Jody");
