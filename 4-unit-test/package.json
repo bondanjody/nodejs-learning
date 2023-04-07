@@ -23,7 +23,7 @@
     },
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "vendor/**/*.{js,jsx}"
+      "!vendor/**/*.{js,jsx}"
     ]
   },
   "author": "BondanJS",
