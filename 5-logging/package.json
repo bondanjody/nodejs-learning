@@ -30,7 +30,8 @@
   "author": "BondanJS",
   "license": "ISC",
   "dependencies": {
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.21.4",
