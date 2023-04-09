@@ -7,7 +7,7 @@ app.use(cookieParser("CONTOH_SECRET_KEY"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  const name = req.cookies["name"];
+  const name = req.signedCookies["login"];
   res.send(`Hello ${name} !`);
 });
 
@@ -18,12 +18,18 @@ app.post("/login", (req, res) => {
 });
 
 test("test cookie read", async () => {
-  const response = await request(app).get("/").set("Cookie", "name=Bondan");
+  const response = await request(app)
+    .get("/")
+    .set(
+      "Cookie",
+      "login=s%3ABondan.NCS7nWHNX1sGOl2iIOroKjc1I8%2FtnmSFdSYwBj%2BjX2s; Path=/"
+    );
   expect(response.text).toBe("Hello Bondan !");
 });
 
 test("test cookie write", async () => {
   const response = await request(app).post("/login").send({ name: "Bondan" });
+  console.info(response.get("Set-Cookie"));
   expect(response.get("Set-Cookie").toString()).toContain("Bondan");
   expect(response.text).toBe("Hello Bondan !");
 });
