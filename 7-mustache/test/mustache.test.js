@@ -40,3 +40,28 @@ test("Mengakses file mustache", async () => {
   console.log(data);
   expect(data).toContain("Bondan Web");
 });
+
+// Mengakses Sections (TANPA DATA)
+test("Mengakses section NOT show", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/person.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {});
+  console.log(data);
+  expect(data).not.toContain("Bondan Web");
+});
+
+// Mengakses Sections (DENGAN DATA)
+test("Mengakses section show", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/person.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    person: { name: "Bondan" },
+  });
+  //   Harus menggunakan key 'person'
+  console.log(data);
+  expect(data).toContain("Hello World");
+});
