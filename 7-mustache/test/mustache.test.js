@@ -20,3 +20,11 @@ test("Menggunakan Tag HTML di dalam Mustache", () => {
   );
   expect(data).toBe("Hello my name is Bondan, and my hobby is programming");
 });
+
+// Menggunakan Data Nested Object
+test("Menggunakan Data Nested Object", () => {
+  const data = Mustache.render("Hello {{person.name}}", {
+    person: { name: "Bondan" },
+  });
+  expect(data).toBe("Hello Bondan");
+});
