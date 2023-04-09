@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.use(errorMiddleware);
 
-test("test response", async () => {
+test("test error handling", async () => {
   const response = await request(app).get("/");
   expect(response.status).toBe(500);
   expect(response.text).toBe("Terjadi error : Ups");
