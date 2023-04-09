@@ -127,3 +127,22 @@ test("Menggunakan list object", async () => {
   expect(data).toContain("Bernardo Silva");
   expect(data).toContain("United Kingdom");
 });
+
+// Menggunakan Functions di Mustache
+test("Menggunakan function", async () => {
+  const parameter = {
+    name: "Bondan",
+    upper: () => {
+      return (text, render) => {
+        return render(text).toUpperCase();
+      };
+    },
+  };
+
+  const data = Mustache.render("Hello {{#upper}}{{name}}{{/upper}}", parameter);
+  //   Menggunakan function upper
+  //   data name dimasukkan ke dalam parameter 'text'
+  //   render digunakan untuk mengkonversi tag mustache menjadi sesuai data yang kita definisikan
+  console.log(data);
+  expect(data).toContain("Hello BONDAN");
+});
