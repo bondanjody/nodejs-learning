@@ -160,3 +160,36 @@ test("Menggunakan komentar", async () => {
   expect(data).toContain("Hello World!");
   expect(data).not.toContain("komentar");
 });
+
+// Partials pada Mustache
+test("Menggunakan Partials pada Mustache", async () => {
+  const headerTemplate = await fs
+    .readFile("./templates/header.mustache")
+    .then((data) => data.toString());
+  const contentTemplate = await fs
+    .readFile("./templates/content.mustache")
+    .then((data) => data.toString());
+  const footerTemplate = await fs
+    .readFile("./templates/footer.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(
+    contentTemplate,
+    {
+      title: "Bondan Web",
+      section: "Hello World!",
+      owner: "Bondan Jody",
+    },
+    {
+      header: headerTemplate,
+      footer: footerTemplate,
+    }
+  );
+  // Parameter ketiga adalah wajib apabila kita ingin menggunakan Partials
+  // NOTE : pastikan parameter render pertama adalah 'content' / file main(utama)
+
+  console.log(data);
+  expect(data).toContain("Bondan Web");
+  expect(data).toContain("Hello World!");
+  expect(data).toContain("Powered by : Bondan Jody");
+});
