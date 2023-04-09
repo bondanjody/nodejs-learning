@@ -104,3 +104,26 @@ test("Menggunakan list", async () => {
   console.log(data);
   expect(data).toContain("musik");
 });
+
+// Menggunakan List Object
+test("Menggunakan list object", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/students.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    students: [
+      {
+        name: "John Stones",
+        address: "United Kingdom",
+      },
+      {
+        name: "Bernardo Silva",
+        address: "Portugal",
+      },
+    ],
+  });
+  console.log(data);
+  expect(data).toContain("Bernardo Silva");
+  expect(data).toContain("United Kingdom");
+});
