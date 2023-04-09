@@ -78,3 +78,16 @@ test("Mengakses section data", async () => {
   console.log(data);
   expect(data).toContain("Hello World Bondan!");
 });
+
+// Demo inverted section (ibarat pengganti else dalam percabangan)
+test("Menggunakan inverted section", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/person.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    // Jika data kosong
+  });
+  console.log(data);
+  expect(data).toContain("Hello guest");
+});
