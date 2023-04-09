@@ -1,4 +1,5 @@
 import Mustache from "mustache";
+import fs from "fs/promises";
 
 test("Menggunakan Mustache", () => {
   const data = Mustache.render("Hello {{name}}", { name: "Bondan" });
@@ -27,4 +28,15 @@ test("Menggunakan Data Nested Object", () => {
     person: { name: "Bondan" },
   });
   expect(data).toBe("Hello Bondan");
+});
+
+// Mengakses file mustache
+test("Mengakses file mustache", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/hello.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, { title: "Bondan Web" });
+  console.log(data);
+  expect(data).toContain("Bondan Web");
 });
