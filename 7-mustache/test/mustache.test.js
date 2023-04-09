@@ -65,3 +65,16 @@ test("Mengakses section show", async () => {
   console.log(data);
   expect(data).toContain("Hello World");
 });
+
+// Mengakses Sections Data
+test("Mengakses section data", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/person.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    person: { name: "Bondan" },
+  });
+  console.log(data);
+  expect(data).toContain("Hello World Bondan!");
+});
