@@ -146,3 +146,17 @@ test("Menggunakan function", async () => {
   console.log(data);
   expect(data).toContain("Hello BONDAN");
 });
+
+// Menggunakan Commentar di Mustache
+test("Menggunakan komentar", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/comment.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    title: "Hello World!",
+  });
+  console.log(data);
+  expect(data).toContain("Hello World!");
+  expect(data).not.toContain("komentar");
+});
