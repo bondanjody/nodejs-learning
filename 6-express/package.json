@@ -30,6 +30,7 @@
   "author": "BondanJS",
   "license": "ISC",
   "dependencies": {
+    "express-fileupload": "^1.4.0",
     "mustache-express": "^1.3.2",
     "express": "^4.18.2",
     "winston": "^3.8.2",
