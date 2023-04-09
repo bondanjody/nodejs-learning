@@ -91,3 +91,16 @@ test("Menggunakan inverted section", async () => {
   console.log(data);
   expect(data).toContain("Hello guest");
 });
+
+// Menggunakan List
+test("Menggunakan list", async () => {
+  const helloTemplate = await fs
+    .readFile("./templates/hobbies.mustache")
+    .then((data) => data.toString());
+
+  const data = Mustache.render(helloTemplate, {
+    hobbies: ["musik", "programming"],
+  });
+  console.log(data);
+  expect(data).toContain("musik");
+});
